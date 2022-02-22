@@ -20,8 +20,9 @@ for subway in range(1, 15):
     actual_list = distances_list[subway - 1]
     counter = 0
     for vertex in range(subway, 15):
-        heuristic_table[f'E{subway}'][f'E{vertex}'] = float(actual_list[counter])
-        heuristic_table[f'E{vertex}'][f'E{subway}'] = float(actual_list[counter])
+        num = actual_list[counter].replace(',', '.')
+        heuristic_table[f'E{subway}'][f'E{vertex}'] = float(num)
+        heuristic_table[f'E{vertex}'][f'E{subway}'] = float(num)
         counter += 1
 print(heuristic_table)
 
